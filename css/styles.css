@@ -54,3 +54,10 @@ body {
 .cell:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
+
+.game-message {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
+  color: #333;
+}

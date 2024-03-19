@@ -72,3 +72,13 @@ function checkForWinDraw() {
     return;
   }
 }
+
+function announceWinner(player) {
+  const messageElement = document.getElementById("gameMessage");
+  messageElement.innerText = `Player ${player} Wins!`;
+}
+
+function announcementDraw() {
+  const messageElement = document.getElementById("gameMessage");
+  messageElement.innerText = `Game Draw!`;
+}
