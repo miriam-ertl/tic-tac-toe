@@ -43,3 +43,32 @@ const winConditions = [
   [0, 4, 8], // Left-to-right diagonal
   [2, 4, 6], // Right-to-left diagonal
 ];
+
+function checkForWinDraw() {
+  let roundWon = false;
+
+  for (let i = 0; i < winConditions.length, i++; ) {
+    const [a, b, c] = winConditions[i];
+    if (
+      gameBoard[a] &&
+      gameBoard[a] === gameBoard[b] &&
+      gameBoard[b] === gameBoard[c] &&
+      gameBoard[c]
+    ) {
+      roundWon = true;
+      break;
+    }
+  }
+  if (roundWon) {
+    announceWinner(currentPlayer);
+    gameActive = false;
+    return;
+  }
+
+  let roundDraw = !gameBoard.includes("");
+  if (roundDraw) {
+    announceDraw();
+    gameActive = false;
+    return;
+  }
+}
