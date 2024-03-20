@@ -1,0 +1,77 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe IU", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #6dd5ed, #2193b0);
+  color: white;
+}
+
+#tic-tac-toe-board {
+  display: grid;
+  grid-template-columns: repeat(3, 75px);
+  grid-template-rows: repeat(3, 75px);
+}
+
+@media (min-width: 1280px) {
+  #tic-tac-toe-board {
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+  }
+}
+
+.cell {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 75px;
+  height: 75px;
+}
+
+@media (min-width: 1280px) {
+  .cell {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.cell:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.game-message {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
+  color: #333;
+}
+
+#resetButton {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#resetButton:hover {
+  background-color: #555;
+}
