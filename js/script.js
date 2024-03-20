@@ -53,7 +53,7 @@ const winConditions = [
   [1, 4, 7], // Middle column
   [2, 5, 8], // Right column
   [0, 4, 8], // Left-to-right diagonal
-  [2, 4, 6], // Right-to-left diagonal
+  [2, 4, 6], // Right-to-left diagonalfunction reser
 ];
 
 function checkForWinOrDraw() {
@@ -82,4 +82,15 @@ function checkForWinOrDraw() {
     gameActive = false;
     return;
   }
+}
+
+function resetGame() {
+  gameBoard = ["", "", "", "", "", "", "", "", ""];
+  gameActive = true;
+  currentPlayer = "X";
+
+  cells.forEach((cell) => {
+    cell.innerText = "";
+  });
+  document.getElementById("gameMessage").innerText = "";
 }
