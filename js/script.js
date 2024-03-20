@@ -94,3 +94,6 @@ function resetGame() {
   });
   document.getElementById("gameMessage").innerText = "";
 }
+
+const resetButton = document.getElementById("resetButton");
+resetButton.addEventListener("click", resetGame, false);
