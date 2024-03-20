@@ -7,14 +7,9 @@ function handlePlayerTurn(clickedCellIndex) {
     return;
   }
   gameBoard[clickedCellIndex] = currentPlayer;
+  checkForWinOrDraw();
   currentPlayer = currentPlayer === "X" ? "O" : "X";
 }
-
-const cells = document.querySelectorAll(".cell");
-
-cells.forEach((cell) => {
-  cell.addEventListener("click", cellClicked, false);
-});
 
 function cellClicked(clickedCellEvent) {
   const clickedCell = clickedCellEvent.target;
@@ -28,10 +23,26 @@ function cellClicked(clickedCellEvent) {
   updateUI();
 }
 
+const cells = document.querySelectorAll(".cell");
+
+cells.forEach((cell) => {
+  cell.addEventListener("click", cellClicked, false);
+});
+
 function updateUI() {
   for (let i = 0; i < cells.length, i++; ) {
     cells[i].innerText = gameBoard[i];
   }
+}
+
+function announceWinner(player) {
+  const messageElement = document.getElementById("gameMessage");
+  messageElement.innerText = `Player ${player} Wins!`;
+}
+
+function announceDraw() {
+  const messageElement = document.getElementById("gameMessage");
+  messageElement.innerText = `Game Draw!`;
 }
 
 const winConditions = [
@@ -71,14 +82,4 @@ function checkForWinOrDraw() {
     gameActive = false;
     return;
   }
-}
-
-function announceWinner(player) {
-  const messageElement = document.getElementById("gameMessage");
-  messageElement.innerText = `Player ${player} Wins!`;
-}
-
-function announceDraw() {
-  const messageElement = document.getElementById("gameMessage");
-  messageElement.innerText = `Game Draw!`;
 }
