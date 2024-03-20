@@ -23,6 +23,7 @@ function cellClicked(clickedCellEvent) {
   if (gameBoard[clickedCellIndex] !== "" || !gameActive) {
     return;
   }
+
   handlePlayerTurn(clickedCellIndex);
   updateUI();
 }
@@ -44,7 +45,7 @@ const winConditions = [
   [2, 4, 6], // Right-to-left diagonal
 ];
 
-function checkForWinDraw() {
+function checkForWinOrDraw() {
   let roundWon = false;
 
   for (let i = 0; i < winConditions.length, i++; ) {
@@ -52,8 +53,7 @@ function checkForWinDraw() {
     if (
       gameBoard[a] &&
       gameBoard[a] === gameBoard[b] &&
-      gameBoard[b] === gameBoard[c] &&
-      gameBoard[c]
+      gameBoard[a] === gameBoard[c]
     ) {
       roundWon = true;
       break;
@@ -78,7 +78,7 @@ function announceWinner(player) {
   messageElement.innerText = `Player ${player} Wins!`;
 }
 
-function announcementDraw() {
+function announceDraw() {
   const messageElement = document.getElementById("gameMessage");
   messageElement.innerText = `Game Draw!`;
 }
