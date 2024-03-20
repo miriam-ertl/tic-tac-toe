@@ -61,3 +61,17 @@ body {
   font-size: 20px;
   color: #333;
 }
+
+#resetButton {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#resetButton:hover {
+  background-color: #555;
+}
