@@ -1,6 +1,7 @@
 let currentPlayer = "X";
 let gameBoard = ["", "", "", "", "", "", "", "", ""];
 let gameActive = true;
+const cells = document.querySelectorAll(".cell");
 
 function handlePlayerTurn(clickedCellIndex) {
   if (gameBoard[clickedCellIndex] !== "" || !gameActive) {
@@ -8,7 +9,7 @@ function handlePlayerTurn(clickedCellIndex) {
   }
   gameBoard[clickedCellIndex] = currentPlayer;
   checkForWinOrDraw();
-  currentPlayer = currentPlayer === "X" ? "O" : "X";
+  currentPlayer = currentPlayer === "X" ? "0" : "X";
 }
 
 function cellClicked(clickedCellEvent) {
@@ -20,19 +21,15 @@ function cellClicked(clickedCellEvent) {
   }
 
   handlePlayerTurn(clickedCellIndex);
-  updateUI();
+  updateUI(clickedCellIndex);
 }
-
-const cells = document.querySelectorAll(".cell");
 
 cells.forEach((cell) => {
   cell.addEventListener("click", cellClicked, false);
 });
 
-function updateUI() {
-  for (let i = 0; i < cells.length, i++; ) {
-    cells[i].innerText = gameBoard[i];
-  }
+function updateUI(clickedCellIndex) {
+  cells[clickedCellIndex].innerText = gameBoard[clickedCellIndex];
 }
 
 function announceWinner(player) {
@@ -53,13 +50,13 @@ const winConditions = [
   [1, 4, 7], // Middle column
   [2, 5, 8], // Right column
   [0, 4, 8], // Left-to-right diagonal
-  [2, 4, 6], // Right-to-left diagonalfunction reser
+  [2, 4, 6], // Right-to-left diagonal
 ];
 
 function checkForWinOrDraw() {
   let roundWon = false;
 
-  for (let i = 0; i < winConditions.length, i++; ) {
+  for (let i = 0; i < winConditions.length; i++) {
     const [a, b, c] = winConditions[i];
     if (
       gameBoard[a] &&
