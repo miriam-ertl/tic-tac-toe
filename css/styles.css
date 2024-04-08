@@ -37,7 +37,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -58,21 +58,22 @@ body {
 
 .game-message {
   text-align: center;
-  margin-top: 20px;
-  font-size: 20px;
-  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: white;
 }
 
 #resetButton {
+  margin-top: 10px;
   padding: 10px 20px;
   font-size: 1rem;
-  color: #fff;
-  background-color: #333;
+  color: rgba(0, 0, 0, 0.7);
+  background-color: white;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 #resetButton:hover {
-  background-color: #555;
+  background-color: powderblue;
 }
